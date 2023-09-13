@@ -6,7 +6,7 @@ class ProfileCard extends HTMLElement {
   }
 
   static get observedAttributes() {
-    return ['name', 'title', 'image'];
+    return ['name', 'title', 'image', 'linkedIn', 'github'];
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -17,6 +17,17 @@ class ProfileCard extends HTMLElement {
     const name = this.getAttribute('name');
     const title = this.getAttribute('title');
     const image = this.getAttribute('image');
+    let linkedIn = this.getAttribute('linkedIn');
+    let github = this.getAttribute('github');
+
+    if (linkedIn) {
+       linkedIn = '<li class="linkedin_bullet" ><a href="https://linkedin.com/in/"' + linkedIn + ">"+linkedIn+"</a></li>"
+    }
+
+    if (github) {
+      github = '<li class="github_bullet"><a href="https://github.com/"' + github + ">"+github+"</a></li>"
+    }
+    const socials = [linkedIn,github].filter(Boolean).map(x => "<li>" + x + "</li>").join("")
 
     this.shadowRoot.innerHTML = `
    
@@ -26,6 +37,9 @@ class ProfileCard extends HTMLElement {
         <img src="${image}" alt="${name}" >
         <h2>${name}</h2>
         <p>${title}</p>
+        <ul>
+            ${socials}
+        </ul>
       </div>
     `;
   }

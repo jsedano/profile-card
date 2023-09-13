@@ -19,3 +19,23 @@
 .profile-card p {
   color: #888;
 }
+
+.profile-card ul {
+  text-align: left;
+  list-style-type: none;
+}
+
+.profile-card li {
+  margin-bottom: 10px;
+  padding-left: 20px; /* Create space for the background image */
+  background-repeat: no-repeat; /* Prevent image repetition */
+  background-position: 0 center; /* Position the image */
+}
+
+.linkedin_bullet {
+  background-image: url('images/LinkedIN_black_small.png');
+}
+
+.github_bullet {
+  background-image: url('images/Github_black_small.png');
+}
