@@ -20,14 +20,14 @@ class ProfileCard extends HTMLElement {
     let linkedIn = this.getAttribute('linkedIn');
     let github = this.getAttribute('github');
 
-    if (linkedIn) {
+    if (linkedIn != null) {
        linkedIn = '<li class="linkedin_bullet" ><a href="https://linkedin.com/in/"' + linkedIn + ">"+linkedIn+"</a></li>"
     }
 
-    if (github) {
+    if (github != null) {
       github = '<li class="github_bullet"><a href="https://github.com/"' + github + ">"+github+"</a></li>"
     }
-    const socials = [linkedIn,github].filter(Boolean).map(x => "<li>" + x + "</li>").join("")
+    const socials = [linkedIn,github].filter(Boolean).join("")
 
     this.shadowRoot.innerHTML = `
    
